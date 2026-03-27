@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Monitor ORCRIM – 26/03/2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f5fb;
+      --bg-sidebar: #ffffff;
+      --bg-card: #ffffff;
+      --primary: #1d4ed8;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 10px 25px rgba(15,23,42,0.06);
+      --transition: 0.22s ease-out;
+      --danger: #b91c1c;
+      --success: #15803d;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* LAYOUT PRINCIPAL */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR – MENU EM ÁRVORE */
+    .sidebar {
+      width: 260px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border);
+      padding: 16px 14px;
+      box-shadow: 4px 0 20px rgba(15,23,42,0.03);
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      margin: 0 0 4px 0;
+      color: #0f172a;
+    }
+
+    .sidebar-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 10px 0;
+    }
+
+    .sidebar-section-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin: 10px 0 4px 0;
+      color: #374151;
+    }
+
+    .tree {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .tree ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 12px;
+    }
+
+    .tree li {
+      margin: 2px 0;
+    }
+
+    .tree-toggle {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tree-toggle span.icon {
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: transform var(--transition), color var(--transition);
+    }
+
+    .tree-toggle.open span.icon {
+      transform: rotate(90deg);
+      color: var(--primary);
+    }
+
+    .tree-link {
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 3px 10px;
+      display: inline-block;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .tree-link.active {
+      background: #e0ebff;
+      color: #1d4ed8;
+      font-weight: 500;
+    }
+
+    /* CONTEÚDO PRINCIPAL */
+    .main {
+      flex: 1;
+      padding: 18px 18px 30px 18px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+      font-size: 1.8rem;
+      margin: 0;
+      color: #0f172a;
+    }
+
+    .hero-subtitle {
+      margin: 6px 0 0 0;
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.45;
+    }
+
+    .hero-meta {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 6px 14px rgba(148,163,184,0.18);
+    }
+
+    /* GRANDES TÓPICOS – SANFONAS PRINCIPAIS */
+    .big-accordion {
+      margin-top: 4px;
+    }
+
+    .big-item {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .big-header {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .big-header:hover {
+      background: #f3f4ff;
+    }
+
+    .big-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .big-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .big-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .big-icon {
+      font-size: 1.3rem;
+      color: var(--muted);
+      transition: transform var(--transition), color var(--transition);
+    }
+
+    .big-item.open .big-icon {
+      transform: rotate(90deg);
+      color: var(--primary);
+    }
+
+    .big-body {
+      padding: 0 16px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease-out, padding 0.25s ease-out;
+    }
+
+    .big-item.open .big-body {
+      padding-top: 10px;
+      padding-bottom: 14px;
+    }
+
+    /* CARDS E SANFONAS INTERNAS */
+    .card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 14px rgba(148,163,184,0.12);
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+    }
+
+    .card-text {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0 0 8px 0;
+      line-height: 1.45;
+    }
+
+    .accordion {
+      margin-top: 6px;
+      border-radius: var(--radius-md);
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .acc-item + .acc-item {
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .acc-header {
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .acc-header:hover {
+      background: #f9fafb;
+    }
+
+    .acc-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .acc-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .acc-icon {
+      font-size: 1.05rem;
+      color: var(--muted);
+      transition: transform var(--transition), color var(--transition);
+    }
+
+    .acc-item.open .acc-icon {
+      transform: rotate(90deg);
+      color: var(--primary);
+    }
+
+    .acc-body {
+      padding: 0 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.22s ease-out, padding 0.22s ease-out;
+    }
+
+    .acc-item.open .acc-body {
+      padding-top: 6px;
+      padding-bottom: 10px;
+    }
+
+    .acc-text {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 6px 0;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #4b5563;
+    }
+    .chip.defesa {
+      border-color: rgba(21,128,61,0.4);
+      color: var(--success);
+      background: #ecfdf5;
+    }
+    .chip.acusacao {
+      border-color: rgba(185,28,28,0.4);
+      color: var(--danger);
+      background: #fef2f2;
+    }
+
+    .link-row {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 22px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .main {
+        padding: 16px 16px 26px 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- MENU EM ÁRVORE -->
+    <aside class="sidebar">
+      <h1 class="sidebar-title">Monitor ORCRIM</h1>
+      <p class="sidebar-sub">Legislação, TJPE, STJ, STF · Registros diários</p>
+
+      <div class="sidebar-section-title">Datas</div>
+      <nav class="tree" aria-label="Histórico por data">
+        <ul>
+          <li>
+            <div class="tree-toggle" data-tree="y2025">
+              <span class="icon">›</span>
+              <span>2025</span>
+            </div>
+            <ul id="y2025" style="display:none;">
+              <li>
+                <div class="tree-toggle" data-tree="y2025-m11">
+                  <span class="icon">›</span>
+                  <span>novembro</span>
+                </div>
+                <ul id="y2025-m11" style="display:none;">
+                  <li><span class="tree-link">25/11/2025</span></li>
+                  <li><span class="tree-link">27/11/2025</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="tree-toggle open" data-tree="y2026">
+              <span class="icon">›</span>
+              <span>2026</span>
+            </div>
+            <ul id="y2026" style="display:block;">
+              <li>
+                <div class="tree-toggle open" data-tree="y2026-m03">
+                  <span class="icon">›</span>
+                  <span>março</span>
+                </div>
+                <ul id="y2026-m03" style="display:block;">
+                  <li><span class="tree-link">17/03/2026</span></li>
+                  <li><span class="tree-link active" data-current="true">26/03/2026</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <p class="sidebar-sub" style="margin-top:12px;">
+        Para atualizar diariamente: duplicar o bloco da data, alterar o conteúdo das sanfonas principais (Legislação, TJPE, STJ, STF) e arquivar as datas anteriores.
+      </p>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL DO DIA -->
+    <main class="main">
+      <div class="wrap">
+        <header>
+          <h2 class="hero-title">Registro do dia – 26/03/2026</h2>
+          <p class="hero-subtitle">
+            Novidades relevantes para ORCRIM (Lei 12.850/2013), com foco em Lei 15.272/2025, teses do STJ sobre medidas cautelares e o caso das emendas no STF.
+          </p>
+          <div class="hero-meta">
+            <div class="pill">Data de referência: 26/03/2026</div>
+            <div class="pill">Última atualização: 26/03/2026 · 17h25</div>
+          </div>
+        </header>
+
+        <div class="big-accordion">
+          <!-- 1. LEGISLAÇÃO -->
+          <section class="big-item" data-big="legislacao">
+            <div class="big-header">
+              <div class="big-title-block">
+                <span class="big-title">Legislação – Lei 15.272/2025</span>
+                <span class="big-sub">
+                  Reforma do CPP em matéria de prisão preventiva, com critérios objetivos de conversão e análise de periculosidade aplicáveis a ORCRIM. [web:25][web:43][web:47][web:48][web:50][web:54]
+                </span>
+              </div>
+              <span class="big-icon">›</span>
+            </div>
+            <div class="big-body">
+              <div class="card">
+                <h4 class="card-title">Conteúdo essencial</h4>
+                <p class="card-text">
+                  A Lei 15.272/2025 alterou o CPP para definir: (i) circunstâncias que recomendam a conversão do flagrante em preventiva
+                  (reiteração, crimes na pendência de inquérito ou ação penal, fuga ou risco de fuga, risco à prova); (ii) critérios de
+                  aferição da periculosidade, incluindo participação em organização criminosa; e (iii) vedação a decisões baseadas apenas
+                  na gravidade abstrata do delito. [web:25][web:43][web:47][web:48][web:50][web:54]
+                </p>
+
+                <div class="accordion">
+                  <div class="acc-item">
+                    <div class="acc-header">
+                      <div>
+                        <div class="acc-title">Tese prática: critérios objetivos e controle da gravidade abstrata</div>
+                        <div class="acc-meta">Impacto direto na fundamentação da preventiva em ORCRIM</div>
+                      </div>
+                      <span class="acc-icon">›</span>
+                    </div>
+                    <div class="acc-body">
+                      <p class="acc-text">
+                        A lei exige demonstração concreta do periculum libertatis, afastando a mera gravidade abstrata. Em investigações
+                        de organização criminosa, decisões devem explicitar o papel do agente no grupo, a possibilidade de continuidade
+                        delitiva e o risco à colheita da prova, com base nos critérios legais, sob pena de nulidade ou revogação. [web:25][web:39][web:20]
+                      </p>
+                      <div class="chip-row">
+                        <span class="chip defesa">Defesa – combate a decisões genéricas</span>
+                        <span class="chip acusacao">Acusação – uso de parâmetros legais de risco</span>
+                      </div>
+                      <div class="link-row">
+                        <span><a href="https://www.planalto.gov.br/ccivil_03/_Ato2023-2026/2025/Lei/L15272.htm" target="_blank" rel="noopener noreferrer">Texto integral – Planalto</a></span>
+                        <span><a href="https://www12.senado.leg.br/noticias/materias/2025/11/27/lei-altera-codigo-de-processo-penal-para-definir-criterios-de-prisao-preventiva" target="_blank" rel="noopener noreferrer">Notícia – Senado</a></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. STJ -->
+          <section class="big-item" data-big="stj">
+            <div class="big-header">
+              <div class="big-title-block">
+                <span class="big-title">STJ – cautelares, sistema acusatório e ORCRIM</span>
+                <span class="big-sub">
+                  Decisões que vedam a conversão em preventiva quando o MP pede cautelares diversas contrastam com julgados que admitem medida mais gravosa, desde que bem fundamentada, em contexto de crime organizado. [web:35][web:56][web:58][web:17][web:19]
+                </span>
+              </div>
+              <span class="big-icon">›</span>
+            </div>
+            <div class="big-body">
+              <div class="card">
+                <h4 class="card-title">Linha 1 – juiz não pode decretar prisão quando MP pede medidas menos gravosas</h4>
+                <p class="card-text">
+                  A 5ª Turma do STJ decidiu que o juiz não pode converter prisão em flagrante em preventiva de ofício se o Ministério Público
+                  requer apenas medidas cautelares alternativas, sob pena de violação do sistema acusatório e do art. 311 do CPP. [web:35][web:56][web:58]
+                </p>
+
+                <div class="accordion">
+                  <div class="acc-item">
+                    <div class="acc-header">
+                      <div>
+                        <div class="acc-title">Tese – prevalência do pedido do MP na espécie de cautelar</div>
+                        <div class="acc-meta">REsp 2.161.880/GO (5ª Turma) – notícia em 15/10/2025</div>
+                      </div>
+                      <span class="acc-icon">›</span>
+                    </div>
+                    <div class="acc-body">
+                      <p class="acc-text">
+                        O STJ entendeu que, ao impor prisão preventiva em cenário de pedido de cautelares diversas, o juiz atua em desconformidade
+                        com o sistema acusatório, que veda a decretação de prisão de ofício. O precedente é frequentemente invocado em HCs
+                        envolvendo organização criminosa, sobretudo quando a fundamentação da preventiva é genérica. [web:35][web:56][web:58]
+                      </p>
+                      <div class="chip-row">
+                        <span class="chip defesa">Defesa – limitação forte à atuação de ofício</span>
+                        <span class="chip acusacao">Acusação – necessidade de formular pedido adequado</span>
+                      </div>
+                      <div class="link-row">
+                        <span><a href="https://www.migalhas.com.br/quentes/442436/stj-juiz-nao-pode-decretar-prisao-quando-mp-requer-medida-alternativa" target="_blank" rel="noopener noreferrer">Migalhas – juiz não pode decretar prisão</a></span>
+                        <span><a href="https://boletimjuridico.ufms.br/stj-juiz-nao-pode-decretar-prisao-quando-mp-requer-medidas-menos-gravosas/" target="_blank" rel="noopener noreferrer">Boletim jurídico – STJ</a></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h4 class="card-title">Linha 2 – juiz pode impor cautelar mais gravosa, se bem fundamentada</h4>
+                <p class="card-text">
+                  Em notícia de 16/03/2026, a 6ª Turma, em caso de organização criminosa voltada a crimes econômicos, admitiu que o juiz
+                  imponha medida mais gravosa que a requerida pelo MP – inclusive preventiva – desde que presentes concretamente os requisitos
+                  do art. 312 do CPP. [web:17]
+                </p>
+
+                <div class="accordion">
+                  <div class="acc-item">
+                    <div class="acc-header">
+                      <div>
+                        <div class="acc-title">Tese – não vinculação absoluta ao pedido do MP</div>
+                        <div class="acc-meta">Notícia de 16/03/2026 (6ª Turma – Migalhas)</div>
+                      </div>
+                      <span class="acc-icon">›</span>
+                    </div>
+                    <div class="acc-body">
+                      <p class="acc-text">
+                        A Turma enfatizou que o juiz não está vinculado ao grau de cautelar sugerido pelo MP, desde que a decisão esteja
+                        escorada em elementos concretos: gravidade dos fatos, papel do investigado na organização criminosa, risco de
+                        reiteração, perigo à ordem pública e à instrução. [web:17]
+                      </p>
+                      <div class="chip-row">
+                        <span class="chip defesa">Defesa – atacar o periculum libertatis e a proporcionalidade</span>
+                        <span class="chip acusacao">Acusação – fundamentar com dados concretos da ORCRIM</span>
+                      </div>
+                      <div class="link-row">
+                        <span><a href="https://www.migalhas.com.br/quentes/452066/stj-juiz-pode-impor-cautelar-mais-gravosa-que-a-requerida-pelo-mp" target="_blank" rel="noopener noreferrer">Migalhas – cautelar mais gravosa</a></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h4 class="card-title">Execução penal – progressão especial e conceito de ORCRIM</h4>
+                <p class="card-text">
+                  A 1ª Turma do STJ firmou que a restrição à progressão especial (art. 112, §3º, V, LEP) recai apenas sobre condenados por
+                  crime de organização criminosa da Lei 12.850/2013, não abrangendo associação criminosa (art. 288 CP) ou associação para
+                  tráfico (art. 35 da Lei 11.343/2006). [web:19]
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. STF -->
+          <section class="big-item" data-big="stf">
+            <div class="big-header">
+              <div class="big-title-block">
+                <span class="big-title">STF – emendas parlamentares, corrupção e organização criminosa</span>
+                <span class="big-sub">
+                  Condenação de deputados do PL por corrupção passiva em esquema de desvio de emendas, com denúncia que descreve núcleo central de organização criminosa, exigindo prova robusta da estrutura para caracterização de ORCRIM. [web:45][web:57][web:59]
+                </span>
+              </div>
+              <span class="big-icon">›</span>
+            </div>
+            <div class="big-body">
+              <div class="card">
+                <h4 class="card-title">Caso das emendas – núcleo parlamentar e propina</h4>
+                <p class="card-text">
+                  O G1 e a CNN noticiam que a Primeira Turma condenou os deputados Josimar Maranhãozinho, Pastor Gil e o ex-deputado Bosco
+                  Costa por corrupção passiva, por esquema que teria desviado cerca de R$ 1,6 milhão em propinas vinculadas ao direcionamento
+                  de emendas parlamentares a municípios do Maranhão. [web:45][web:57][web:59]
+                </p>
+
+                <div class="accordion">
+                  <div class="acc-item">
+                    <div class="acc-header">
+                      <div>
+                        <div class="acc-title">Estrutura da acusação e elementos de ORCRIM</div>
+                        <div class="acc-meta">Núcleo político, direcionamento de emendas, exigência probatória</div>
+                      </div>
+                      <span class="acc-icon">›</span>
+                    </div>
+                    <div class="acc-body">
+                      <p class="acc-text">
+                        A denúncia descreve um núcleo político que, em tese, integraria organização criminosa para captar propinas em troca de
+                        emendas. As notícias indicam, porém, que a condenação se concentrou em corrupção passiva, e a configuração de ORCRIM
+                        sofre maior escrutínio quanto à prova da estrutura, da divisão de tarefas e da permanência do grupo. [web:45][web:57][web:59]
+                      </p>
+                      <div class="chip-row">
+                        <span class="chip defesa">Defesa – questionar a prova estrutural da ORCRIM</span>
+                        <span class="chip acusacao">Acusação – detalhar núcleos, funções e estabilidade temporal</span>
+                      </div>
+                      <div class="link-row">
+                        <span><a href="https://g1.globo.com/politica/noticia/2026/03/17/stf-condena-por-corrupcao-deputados-do-pl-acusados-de-irregularidades-com-emendas-parlamentares.ghtml" target="_blank" rel="noopener noreferrer">G1 – condenação por desvio de emendas</a></span>
+                        <span><a href="https://g1.globo.com/jornal-nacional/noticia/2026/03/17/por-unanimidade-stf-condena-dois-deputados-e-um-ex-parlamentar-do-pl-por-desvio-de-emendas.ghtml" target="_blank" rel="noopener noreferrer">G1 – Jornal Nacional</a></span>
+                        <span><a href="https://www.cnnbrasil.com.br/politica/stf-condena-deputados-do-pl-por-desvio-de-emendas-saiba-os-proximos-passos/" target="_blank" rel="noopener noreferrer">CNN – próximos passos</a></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <footer>
+          Monitor ORCRIM – 26/03/2026. Uso informativo. Consulte sempre o texto integral das leis e decisões nos portais oficiais.
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // MENU EM ÁRVORE
+    document.querySelectorAll('.tree-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const target = toggle.getAttribute('data-tree');
+        if (!target) return;
+        const ul = document.getElementById(target);
+        if (!ul) return;
+        const isOpen = toggle.classList.contains('open');
+        if (isOpen) {
+          ul.style.display = 'none';
+          toggle.classList.remove('open');
+        } else {
+          ul.style.display = 'block';
+          toggle.classList.add('open');
+        }
+      });
+    });
+
+    // AUXILIAR: abre painel com animação e, ao final, remove limite
+    function openPanel(element) {
+      // mede altura real
+      element.style.maxHeight = 'none';
+      const full = element.scrollHeight;
+      element.style.maxHeight = '0px';
+      requestAnimationFrame(() => {
+        element.style.maxHeight = full + 'px';
+      });
+
+      // após a transição, libera o max-height para evitar corte
+      const onEnd = (ev) => {
+        if (ev.propertyName === 'max-height') {
+          element.style.maxHeight = 'none';
+          element.removeEventListener('transitionend', onEnd);
+        }
+      };
+      element.addEventListener('transitionend', onEnd);
+    }
+
+    // GRANDES SANFONAS – abrir uma fecha as outras
+    const bigItems = document.querySelectorAll('.big-item');
+    bigItems.forEach(item => {
+      const header = item.querySelector('.big-header');
+      const body = item.querySelector('.big-body');
+      body.style.maxHeight = '0px';
+
+      header.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // fecha todas
+        bigItems.forEach(it => {
+          const b = it.querySelector('.big-body');
+          it.classList.remove('open');
+          b.style.maxHeight = '0px';
+        });
+
+        // abre só a clicada (se não estava aberta)
+        if (!isOpen) {
+          item.classList.add('open');
+          openPanel(body);
+        }
+      });
+    });
+
+    // SANFONAS INTERNAS – independentes, sempre iniciam fechadas
+    document.querySelectorAll('.acc-item').forEach(item => {
+      const header = item.querySelector('.acc-header');
+      const body = item.querySelector('.acc-body');
+      body.style.maxHeight = '0px';
+
+      header.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        if (isOpen) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            body.style.maxHeight = '0px';
+          });
+          item.classList.remove('open');
+        } else {
+          item.classList.add('open');
+          openPanel(body);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
