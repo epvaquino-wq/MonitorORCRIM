@@ -94,29 +94,11 @@
     .tree ul {
       list-style: none;
       margin: 0;
-      padding-left: 12px;
+      padding-left: 0;
     }
 
     .tree li {
       margin: 2px 0;
-    }
-
-    .tree-toggle {
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .tree-toggle span.icon {
-      font-size: 0.85rem;
-      color: var(--muted);
-      transition: transform var(--transition), color var(--transition);
-    }
-
-    .tree-toggle.open span.icon {
-      transform: rotate(90deg);
-      color: var(--primary);
     }
 
     .tree-link {
@@ -402,7 +384,7 @@
 </head>
 <body>
   <div class="layout">
-    <!-- MENU EM ÁRVORE -->
+    <!-- MENU LATERAL SIMPLIFICADO -->
     <aside class="sidebar">
       <h1 class="sidebar-title">Monitor ORCRIM</h1>
       <p class="sidebar-sub">Legislação, TJPE, STJ, STF · Registros diários</p>
@@ -410,44 +392,8 @@
       <div class="sidebar-section-title">Datas</div>
       <nav class="tree" aria-label="Histórico por data">
         <ul>
-          <li>
-            <div class="tree-toggle" data-tree="y2025">
-              <span class="icon">›</span>
-              <span>2025</span>
-            </div>
-            <ul id="y2025" style="display:none;">
-              <li>
-                <div class="tree-toggle" data-tree="y2025-m11">
-                  <span class="icon">›</span>
-                  <span>novembro</span>
-                </div>
-                <ul id="y2025-m11" style="display:none;">
-                  <li><span class="tree-link">25/11/2025</span></li>
-                  <li><span class="tree-link">27/11/2025</span></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <div class="tree-toggle open" data-tree="y2026">
-              <span class="icon">›</span>
-              <span>2026</span>
-            </div>
-            <ul id="y2026" style="display:block;">
-              <li>
-                <div class="tree-toggle open" data-tree="y2026-m03">
-                  <span class="icon">›</span>
-                  <span>março</span>
-                </div>
-                <ul id="y2026-m03" style="display:block;">
-                  <li><span class="tree-link">17/03/2026</span></li>
-                  <li><span class="tree-link">26/03/2026</span></li>
-                  <li><span class="tree-link active" data-current="true">27/03/2026</span></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+          <li><a class="tree-link active" href="index.html">27/03/2026 (hoje)</a></li>
+          <li><a class="tree-link" href="historico/monitor_orcrim_2026-03-26.html">26/03/2026</a></li>
         </ul>
       </nav>
 
@@ -462,7 +408,7 @@
         <header>
           <h2 class="hero-title">Registro do dia – 27/03/2026</h2>
           <p class="hero-subtitle">
-            Novidades das últimas 24 horas em legislação e jurisprudência sobre organização criminosa (Lei 12.850/2013 e normas correlatas), com foco em atos normativos e precedentes oficialmente publicados.
+            Novidades das últimas 24 horas em legislação e jurisprudência sobre organização criminosa (Lei 12.850/2013 e normas correlatas), com foco em atos normativos e precedentes oficialmente publicados.[web:35][web:28][web:13]
           </p>
           <div class="hero-meta">
             <div class="pill">Data de referência: 27/03/2026</div>
@@ -477,7 +423,7 @@
               <div class="big-title-block">
                 <span class="big-title">Legislação – Veto 14/2026 à Lei 15.358/2026 (marco legal do combate ao crime organizado)</span>
                 <span class="big-sub">
-                  Início da tramitação do veto presidencial a dispositivos da Lei 15.358/2026, que alterou a Lei 12.850/2013 e outros diplomas para fortalecer o combate às organizações criminosas, com registro de recebimento no Congresso em 26/03/2026.
+                  Início da tramitação do veto presidencial a dispositivos da Lei 15.358/2026, que alterou a Lei 12.850/2013 e outros diplomas para fortalecer o combate às organizações criminosas, com registro de recebimento no Congresso em 26/03/2026.[web:35][web:27][web:65]
                 </span>
               </div>
               <span class="big-icon">›</span>
@@ -486,10 +432,10 @@
               <div class="card">
                 <h4 class="card-title">Contexto normativo – Lei 15.358/2026 (resultado do PL 5582/2025)</h4>
                 <p class="card-text">
-                  O Projeto de Lei 5582/2025, de iniciativa do Poder Executivo, foi concebido como marco legal do combate ao crime organizado no Brasil, alterando diretamente a Lei 12.850/2013, o Código Penal, o Código de Processo Penal, a Lei dos Crimes Hediondos, a Lei de Prisão Temporária e a Lei de Execução Penal para disciplinar o enfrentamento às organizações criminosas, com foco em facções e milícias.[page:1][page:0]
+                  O Projeto de Lei 5582/2025, de iniciativa do Poder Executivo, foi concebido como marco legal do combate ao crime organizado no Brasil, alterando diretamente a Lei 12.850/2013, o Código Penal, o Código de Processo Penal, a Lei dos Crimes Hediondos, a Lei de Prisão Temporária e a Lei de Execução Penal para disciplinar o enfrentamento às organizações criminosas, com foco em facções e milícias.[web:35][web:27][web:58]
                 </p>
                 <p class="card-text">
-                  Após aprovação pela Câmara dos Deputados e pelo Senado Federal, o texto foi sancionado com vetos parciais e transformado na Lei 15.358, de 24/03/2026, publicada no Diário Oficial de 25/03/2026, passando a integrar o bloco normativo que complementa e endurece o regime já previsto na Lei 12.850/2013.[page:0][page:1]
+                  Após aprovação pela Câmara dos Deputados e pelo Senado Federal, o texto foi sancionado com vetos parciais e transformado na Lei 15.358, de 24/03/2026, publicada no Diário Oficial de 25/03/2026, passando a integrar o bloco normativo que complementa e endurece o regime já previsto na Lei 12.850/2013.[web:35][web:27][web:62]
                 </p>
 
                 <div class="accordion">
@@ -503,10 +449,10 @@
                     </div>
                     <div class="acc-body">
                       <p class="acc-text">
-                        Em 26/03/2026 teve início, no Congresso Nacional, o calendário de tramitação do Veto 14/2026, que recai sobre dispositivos da Lei 15.358/2026 relativos ao marco legal do combate ao crime organizado, inclusive pontos que dialogam com a Lei 12.850/2013.[page:1]
+                        Em 26/03/2026 teve início, no Congresso Nacional, o calendário de tramitação do Veto 14/2026, que recai sobre dispositivos da Lei 15.358/2026 relativos ao marco legal do combate ao crime organizado, inclusive pontos que dialogam com a Lei 12.850/2013.[web:35][web:27]
                       </p>
                       <p class="acc-text">
-                        O veto foi comunicado após a transformação do PL 5582/2025 em norma jurídica com veto parcial em 25/03/2026, de forma que, nas últimas 24 horas, a novidade relevante para o Monitor ORCRIM é a abertura da fase de apreciação parlamentar desse veto, que poderá manter ou restabelecer trechos do novo regime de enfrentamento às organizações criminosas.[page:1]
+                        O veto foi comunicado após a transformação do PL 5582/2025 em norma jurídica com veto parcial, de forma que, nas últimas 24 horas, a novidade relevante para o Monitor ORCRIM é a abertura da fase de apreciação parlamentar desse veto, que poderá manter ou restabelecer trechos do novo regime de enfrentamento às organizações criminosas.[web:35][web:27][web:65]
                       </p>
                       <div class="chip-row">
                         <span class="chip defesa">Defesa – mapear dispositivos vetados que impactam garantias processuais</span>
@@ -515,7 +461,7 @@
                       <div class="link-row">
                         <span><a href="https://www.congressonacional.leg.br/materias/materias-bicamerais/-/ver/pl-5582-2025" target="_blank" rel="noopener noreferrer">Tramitação bicameral do PL 5582/2025</a></span>
                         <span><a href="https://www25.senado.leg.br/web/atividade/materias/-/materia/171725" target="_blank" rel="noopener noreferrer">Página do PL 5582/2025 no Senado (Lei 15.358/2026)</a></span>
-                        <span><a href="http://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12850.htm" target="_blank" rel="noopener noreferrer">Lei 12.850/2013 – texto base (Planalto)</a></span>
+                        <span><a href="http://www.planalto.gov.br/CCivil_03/_Ato2011-2014/2013/Lei/L12850.htm" target="_blank" rel="noopener noreferrer">Lei 12.850/2013 – texto base (Planalto)</a></span>
                       </div>
                     </div>
                   </div>
@@ -530,10 +476,10 @@
                     </div>
                     <div class="acc-body">
                       <p class="acc-text">
-                        A própria ementa do PL 5582/2025 explicita que ele altera a Lei 12.850/2013 para dispor sobre o combate às organizações criminosas, reforçando o arcabouço inaugurado por essa lei, que define organização criminosa como associação estruturada de quatro ou mais pessoas com divisão de tarefas voltada à prática de infrações penais graves ou transnacionais.[page:1][web:13]
+                        A própria ementa do PL 5582/2025 explicita que ele altera a Lei 12.850/2013 para dispor sobre o combate às organizações criminosas, reforçando o arcabouço inaugurado por essa lei, que define organização criminosa como associação estruturada de quatro ou mais pessoas com divisão de tarefas voltada à prática de infrações penais graves ou transnacionais.[web:35][web:65][web:13]
                       </p>
                       <p class="acc-text">
-                        Em síntese, a Lei 15.358/2026 não substitui a Lei 12.850/2013, mas a complementa, criando figuras como domínio social estruturado, ajustando penas e procedimentos em leis penais e processuais correlatas e servindo como instrumento legislativo de recrudescimento do tratamento estatal às facções e milícias organizadas.[page:0][page:1]
+                        Em síntese, a Lei 15.358/2026 não substitui a Lei 12.850/2013, mas a complementa, criando figuras como domínio social estruturado, ajustando penas e procedimentos em leis penais e processuais correlatas e servindo como instrumento legislativo de recrudescimento do tratamento estatal às facções e milícias organizadas.[web:35][web:27][web:58]
                       </p>
                     </div>
                   </div>
@@ -548,7 +494,7 @@
               <div class="big-title-block">
                 <span class="big-title">Jurisprudência – TJPE, STJ e STF (últimas 24h)</span>
                 <span class="big-sub">
-                  Monitoramento diário dos repositórios oficiais não identificou, nas últimas 24 horas, novos acórdãos ou decisões monocráticas com referência expressa à Lei 12.850/2013 ou ao crime de organização criminosa nos sítios de TJPE, STJ ou STF.
+                  Monitoramento diário dos repositórios oficiais não identificou, nas últimas 24 horas, novos acórdãos ou decisões monocráticas com referência expressa à Lei 12.850/2013 ou ao crime de organização criminosa nos sítios de TJPE, STJ ou STF.[web:17][web:20][web:21][web:22][web:23][web:24]
                 </span>
               </div>
               <span class="big-icon">›</span>
@@ -595,24 +541,6 @@
   </div>
 
   <script>
-    // MENU EM ÁRVORE
-    document.querySelectorAll('.tree-toggle').forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const target = toggle.getAttribute('data-tree');
-        if (!target) return;
-        const ul = document.getElementById(target);
-        if (!ul) return;
-        const isOpen = toggle.classList.contains('open');
-        if (isOpen) {
-          ul.style.display = 'none';
-          toggle.classList.remove('open');
-        } else {
-          ul.style.display = 'block';
-          toggle.classList.add('open');
-        }
-      });
-    });
-
     // AUXILIAR: abre painel com animação e, ao final, remove limite
     function openPanel(element) {
       element.style.maxHeight = 'none';
