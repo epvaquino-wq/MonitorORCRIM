@@ -5,7 +5,7 @@
   <title>Monitor ORCRIM – 27/03/2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Fonte -->
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -46,13 +46,11 @@
       text-decoration: underline;
     }
 
-    /* LAYOUT PRINCIPAL */
     .layout {
       display: flex;
       min-height: 100vh;
     }
 
-    /* SIDEBAR – MENU EM ÁRVORE */
     .sidebar {
       width: 260px;
       background: var(--bg-sidebar);
@@ -115,7 +113,6 @@
       font-weight: 500;
     }
 
-    /* CONTEÚDO PRINCIPAL */
     .main {
       flex: 1;
       padding: 18px 18px 30px 18px;
@@ -141,7 +138,7 @@
       margin: 6px 0 0 0;
       font-size: 0.98rem;
       color: var(--muted);
-      max-width: 620px;
+      max-width: 640px;
       line-height: 1.45;
     }
 
@@ -162,7 +159,6 @@
       box-shadow: 0 6px 14px rgba(148,163,184,0.18);
     }
 
-    /* GRANDES TÓPICOS – SANFONAS PRINCIPAIS */
     .big-accordion {
       margin-top: 4px;
     }
@@ -229,7 +225,6 @@
       padding-bottom: 14px;
     }
 
-    /* CARDS E SANFONAS INTERNAS */
     .card {
       background: #ffffff;
       border-radius: var(--radius-md);
@@ -333,11 +328,13 @@
       background: #f9fafb;
       color: #4b5563;
     }
+
     .chip.defesa {
       border-color: rgba(21,128,61,0.4);
       color: var(--success);
       background: #ecfdf5;
     }
+
     .chip.acusacao {
       border-color: rgba(185,28,28,0.4);
       color: var(--danger);
@@ -360,7 +357,6 @@
       text-align: center;
     }
 
-    /* RESPONSIVO */
     @media (max-width: 900px) {
       .layout {
         flex-direction: column;
@@ -384,7 +380,6 @@
 </head>
 <body>
   <div class="layout">
-    <!-- MENU LATERAL SIMPLIFICADO -->
     <aside class="sidebar">
       <h1 class="sidebar-title">Monitor ORCRIM</h1>
       <p class="sidebar-sub">Legislação, TJPE, STJ, STF · Registros diários</p>
@@ -396,72 +391,75 @@
           <li><a class="tree-link" href="historico/monitor_orcrim_2026-03-26.html">26/03/2026</a></li>
         </ul>
       </nav>
-
-      <p class="sidebar-sub" style="margin-top:12px;">
-        Para atualizar diariamente: duplicar o bloco da data, alterar o conteúdo das sanfonas principais (Legislação, TJPE, STJ, STF) e arquivar as datas anteriores.
-      </p>
     </aside>
 
-    <!-- CONTEÚDO PRINCIPAL DO DIA -->
     <main class="main">
       <div class="wrap">
         <header>
           <h2 class="hero-title">Registro do dia – 27/03/2026</h2>
           <p class="hero-subtitle">
-            Novidades das últimas 24 horas em legislação e jurisprudência sobre organização criminosa (Lei 12.850/2013 e normas correlatas), com foco em atos normativos e precedentes oficialmente publicados.[web:35][web:28][web:13]
+            Novidades das últimas 24 horas em legislação e jurisprudência sobre organização criminosa (Lei 12.850/2013 e normas correlatas) e investigação criminal, com foco em atos normativos oficiais e precedentes de TJPE, STJ e STF publicados em repositórios institucionais.
           </p>
           <div class="hero-meta">
             <div class="pill">Data de referência: 27/03/2026</div>
-            <div class="pill">Última atualização: 27/03/2026 · 10h30</div>
+            <div class="pill">Última atualização: 27/03/2026 · 11h50</div>
           </div>
         </header>
 
         <div class="big-accordion">
-          <!-- 1. LEGISLAÇÃO / PROCESSO LEGISLATIVO -->
-          <section class="big-item open" data-big="legislacao">
+          <!-- LEGISLAÇÃO / PROCESSO LEGISLATIVO -->
+          <section class="big-item" data-big="legislacao">
             <div class="big-header">
               <div class="big-title-block">
-                <span class="big-title">Legislação – Veto 14/2026 à Lei 15.358/2026 (marco legal do combate ao crime organizado)</span>
+                <span class="big-title">Legislação – Veto 14/2026 à Lei 15.358/2026 (Marco Legal do Combate ao Crime Organizado)</span>
                 <span class="big-sub">
-                  Início da tramitação do veto presidencial a dispositivos da Lei 15.358/2026, que alterou a Lei 12.850/2013 e outros diplomas para fortalecer o combate às organizações criminosas, com registro de recebimento no Congresso em 26/03/2026.[web:35][web:27][web:65]
+                  Nas últimas 24 horas, permanece como principal fato normativo a comunicação, ao Congresso Nacional, do Veto nº 14/2026 à Lei nº 15.358/2026 (Lei Raul Jungmann), que institui o marco legal do combate ao crime organizado no Brasil e dialoga diretamente com a Lei nº 12.850/2013.
                 </span>
               </div>
               <span class="big-icon">›</span>
             </div>
             <div class="big-body">
               <div class="card">
-                <h4 class="card-title">Contexto normativo – Lei 15.358/2026 (resultado do PL 5582/2025)</h4>
+                <h4 class="card-title">Contexto normativo – Lei 15.358/2026 e relação com a Lei 12.850/2013</h4>
                 <p class="card-text">
-                  O Projeto de Lei 5582/2025, de iniciativa do Poder Executivo, foi concebido como marco legal do combate ao crime organizado no Brasil, alterando diretamente a Lei 12.850/2013, o Código Penal, o Código de Processo Penal, a Lei dos Crimes Hediondos, a Lei de Prisão Temporária e a Lei de Execução Penal para disciplinar o enfrentamento às organizações criminosas, com foco em facções e milícias.[web:35][web:27][web:58]
+                  A Lei nº 15.358, de 24/03/2026, publicada em 25/03/2026, institui o Marco Legal do Combate ao Crime Organizado, tipificando os crimes de domínio social estruturado e de favorecimento ao domínio social estruturado, voltados a organizações criminosas ultraviolentas, grupos paramilitares e milícias privadas
+                  (<a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15358.htm" target="_blank" rel="noopener noreferrer">texto oficial – Planalto</a>,
+                  <a href="https://legislacao.presidencia.gov.br/atos?tipo=LEI&numero=15358&ano=2026&data=24/03/2026&ato=0c6oXU610djpWT243" target="_blank" rel="noopener noreferrer">Legislação – Presidência</a>).
                 </p>
                 <p class="card-text">
-                  Após aprovação pela Câmara dos Deputados e pelo Senado Federal, o texto foi sancionado com vetos parciais e transformado na Lei 15.358, de 24/03/2026, publicada no Diário Oficial de 25/03/2026, passando a integrar o bloco normativo que complementa e endurece o regime já previsto na Lei 12.850/2013.[web:35][web:27][web:62]
+                  O diploma resulta do Projeto de Lei nº 5.582/2025, de iniciativa do Poder Executivo, originalmente concebido para alterar a Lei nº 12.850/2013 (organização criminosa) e outros diplomas penais e processuais com vistas ao endurecimento do tratamento jurídico conferido às facções e milícias
+                  (<a href="https://www25.senado.leg.br/web/atividade/materias/-/materia/171725" target="_blank" rel="noopener noreferrer">PL 5582/2025 – Senado</a>,
+                  <a href="https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2579832" target="_blank" rel="noopener noreferrer">tramitação – Câmara</a>,
+                  <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/L12850.htm" target="_blank" rel="noopener noreferrer">Lei 12.850/2013 – Planalto</a>).
                 </p>
 
                 <div class="accordion">
                   <div class="acc-item">
                     <div class="acc-header">
                       <div>
-                        <div class="acc-title">Novidade das últimas 24h – início da tramitação do Veto 14/2026</div>
-                        <div class="acc-meta">Calendário constitucional de análise do veto à Lei 15.358/2026</div>
+                        <div class="acc-title">Novidade das últimas 24h – início da tramitação do Veto nº 14/2026</div>
+                        <div class="acc-meta">Veto presidencial parcialmente ao marco legal do combate ao crime organizado</div>
                       </div>
                       <span class="acc-icon">›</span>
                     </div>
                     <div class="acc-body">
                       <p class="acc-text">
-                        Em 26/03/2026 teve início, no Congresso Nacional, o calendário de tramitação do Veto 14/2026, que recai sobre dispositivos da Lei 15.358/2026 relativos ao marco legal do combate ao crime organizado, inclusive pontos que dialogam com a Lei 12.850/2013.[web:35][web:27]
+                        O Veto nº 14/2026, de natureza parcial, foi recebido pelo Congresso Nacional em 26/03/2026, abrindo a fase de controle político dos dispositivos vetados da Lei nº 15.358/2026, inclusive aqueles que poderiam alargar o alcance subjetivo do tipo de domínio social estruturado e a destinação de valores apreendidos de organizações criminosas
+                        (<a href="https://www.congressoemfoco.com.br/noticia/117528/nova-lei-antifaccao-entra-em-vigor-veja-a-integra-e-o-que-muda" target="_blank" rel="noopener noreferrer">análise – contexto</a>,
+                        <a href="https://www.congressonacional.leg.br/materias/vetos/-/veto/detalhe/18069" target="_blank" rel="noopener noreferrer">Veto 14/2026 – Congresso Nacional</a>,
+                        <a href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15358-24-marco-2026-798846-veto-178586-pl.html" target="_blank" rel="noopener noreferrer">página da lei com veto – Câmara</a>).
                       </p>
                       <p class="acc-text">
-                        O veto foi comunicado após a transformação do PL 5582/2025 em norma jurídica com veto parcial, de forma que, nas últimas 24 horas, a novidade relevante para o Monitor ORCRIM é a abertura da fase de apreciação parlamentar desse veto, que poderá manter ou restabelecer trechos do novo regime de enfrentamento às organizações criminosas.[web:35][web:27][web:65]
+                        Nas últimas 24 horas, não houve novos atos normativos alterando o conteúdo da Lei nº 15.358/2026 ou da Lei nº 12.850/2013; o movimento relevante permanece sendo a instauração formal da tramitação do veto, cujo resultado poderá restaurar trechos vetados ou consolidar a redação sancionada do marco legal.
                       </p>
                       <div class="chip-row">
-                        <span class="chip defesa">Defesa – mapear dispositivos vetados que impactam garantias processuais</span>
-                        <span class="chip acusacao">Acusação – acompanhar eventual derrubada do veto para reforço de instrumentos investigativos</span>
+                        <span class="chip defesa">Defesa – mapear os dispositivos vetados que impactam garantias processuais e regimes de cumprimento de pena</span>
+                        <span class="chip acusacao">Acusação – acompanhar eventual derrubada do veto que amplie instrumentos de investigação e de asfixia patrimonial</span>
                       </div>
                       <div class="link-row">
-                        <span><a href="https://www.congressonacional.leg.br/materias/materias-bicamerais/-/ver/pl-5582-2025" target="_blank" rel="noopener noreferrer">Tramitação bicameral do PL 5582/2025</a></span>
-                        <span><a href="https://www25.senado.leg.br/web/atividade/materias/-/materia/171725" target="_blank" rel="noopener noreferrer">Página do PL 5582/2025 no Senado (Lei 15.358/2026)</a></span>
-                        <span><a href="http://www.planalto.gov.br/CCivil_03/_Ato2011-2014/2013/Lei/L12850.htm" target="_blank" rel="noopener noreferrer">Lei 12.850/2013 – texto base (Planalto)</a></span>
+                        <span><a href="https://www.congressonacional.leg.br/materias/vetos/-/veto/detalhe/18069" target="_blank" rel="noopener noreferrer">Detalhamento do Veto 14/2026</a></span>
+                        <span><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15358.htm" target="_blank" rel="noopener noreferrer">Lei 15.358/2026 – texto consolidado</a></span>
+                        <span><a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/L12850.htm" target="_blank" rel="noopener noreferrer">Lei 12.850/2013 – Lei de Organização Criminosa</a></span>
                       </div>
                     </div>
                   </div>
@@ -469,17 +467,19 @@
                   <div class="acc-item">
                     <div class="acc-header">
                       <div>
-                        <div class="acc-title">Relação com a Lei 12.850/2013 e o conceito de organização criminosa</div>
-                        <div class="acc-meta">Complementação do regime de combate ao crime organizado</div>
+                        <div class="acc-title">Impactos sistêmicos para o conceito e o enfrentamento das organizações criminosas</div>
+                        <div class="acc-meta">Integração entre Lei 12.850/2013 e o novo marco legal antifacção</div>
                       </div>
                       <span class="acc-icon">›</span>
                     </div>
                     <div class="acc-body">
                       <p class="acc-text">
-                        A própria ementa do PL 5582/2025 explicita que ele altera a Lei 12.850/2013 para dispor sobre o combate às organizações criminosas, reforçando o arcabouço inaugurado por essa lei, que define organização criminosa como associação estruturada de quatro ou mais pessoas com divisão de tarefas voltada à prática de infrações penais graves ou transnacionais.[web:35][web:65][web:13]
+                        A Lei nº 12.850/2013 continua a ser o diploma de definição de organização criminosa e de disciplina da investigação criminal, meios de obtenção da prova e procedimento especial, ao passo que a Lei nº 15.358/2026 cria tipos penais autônomos voltados a facções de alta periculosidade e reforça instrumentos de cooperação, banco nacional de dados e atuação integrada das forças de segurança
+                        (<a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/L12850.htm" target="_blank" rel="noopener noreferrer">Lei 12.850/2013</a>,
+                        <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15358.htm" target="_blank" rel="noopener noreferrer">Lei 15.358/2026</a>).
                       </p>
                       <p class="acc-text">
-                        Em síntese, a Lei 15.358/2026 não substitui a Lei 12.850/2013, mas a complementa, criando figuras como domínio social estruturado, ajustando penas e procedimentos em leis penais e processuais correlatas e servindo como instrumento legislativo de recrudescimento do tratamento estatal às facções e milícias organizadas.[web:35][web:27][web:58]
+                        Para fins de atuação prática, o Monitor ORCRIM registra que, no dia de hoje, a agenda legislativa relevante concentra-se na gestão do veto presidencial e em seus efeitos sobre a dosimetria das penas, o regime de progressão, o confisco alargado e a institucionalização do Banco Nacional de Dados de Organizações Criminosas, sem alteração adicional do conceito legal de organização criminosa.
                       </p>
                     </div>
                   </div>
@@ -488,43 +488,67 @@
             </div>
           </section>
 
-          <!-- 2. JURISPRUDÊNCIA – TJPE, STJ, STF -->
+          <!-- JURISPRUDÊNCIA – TJPE, STJ, STF -->
           <section class="big-item" data-big="jurisprudencia">
             <div class="big-header">
               <div class="big-title-block">
                 <span class="big-title">Jurisprudência – TJPE, STJ e STF (últimas 24h)</span>
                 <span class="big-sub">
-                  Monitoramento diário dos repositórios oficiais não identificou, nas últimas 24 horas, novos acórdãos ou decisões monocráticas com referência expressa à Lei 12.850/2013 ou ao crime de organização criminosa nos sítios de TJPE, STJ ou STF.[web:17][web:20][web:21][web:22][web:23][web:24]
+                  Varredura nos repositórios oficiais de TJPE, STJ e STF, com filtros por "organização criminosa", "Lei 12.850" e termos correlatos de investigação criminal, não identificou, no período, novos acórdãos ou decisões monocráticas relevantes sobre o tema.
                 </span>
               </div>
               <span class="big-icon">›</span>
             </div>
             <div class="big-body">
               <div class="card">
-                <h4 class="card-title">Resultado da varredura – sem novos precedentes relevantes no período</h4>
+                <h4 class="card-title">Resultado da pesquisa – ausência de novos precedentes relevantes</h4>
                 <p class="card-text">
-                  Consulta aos portais de jurisprudência e às seções públicas de notícias institucionais de STJ e STF, com filtros textuais por "organização criminosa" e "Lei 12.850", indica que as decisões mais recentes com esse recorte temático datam de janeiro e fevereiro de 2026, sem novos julgados disponibilizados entre a manhã de 26/03/2026 e a manhã de 27/03/2026.[web:17][web:20][web:21][web:22][web:23][web:24]
+                  A consulta aos portais de jurisprudência de STJ e STF, bem como ao portal institucional do TJPE, indica que, entre a manhã de 26/03/2026 e o fechamento deste relatório em 27/03/2026, não foram disponibilizados novos julgados com referência expressa ao crime de organização criminosa (art. 2º da Lei nº 12.850/2013) ou a meios de investigação disciplinados na mesma lei.
                 </p>
                 <p class="card-text">
-                  No âmbito do TJPE, a pesquisa no portal institucional e em compilações temáticas demonstra uso recorrente da Lei 12.850/2013 para fundamentar competência de varas colegiadas e especializadas em delitos de organizações criminosas, mas não houve publicação, no período monitorado, de novos acórdãos com destaque específico para o tipo penal de organização criminosa ou para teses processuais diretamente relacionadas.[web:3][web:12]
+                  Mantêm-se, assim, como principais referenciais jurisprudenciais do tema, precedentes anteriores que reforçam a autonomia do tipo de organização criminosa em relação aos crimes antecedentes e a necessidade de respeito ao conceito legal restritivo na interpretação de dispositivos que mencionam "organização criminosa" em outros diplomas, como a Lei de Execução Penal
+                  (<a href="https://sv03.stj.jus.br/SCON/GetInteiroTeorDoAcordao?num_registro=202403191843&dt_publicacao=26/02/2025" target="_blank" rel="noopener noreferrer">AgRg no RHC 203281/STJ</a>,
+                  <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/L12850.htm" target="_blank" rel="noopener noreferrer">Lei 12.850/2013</a>).
                 </p>
 
                 <div class="accordion">
                   <div class="acc-item">
                     <div class="acc-header">
                       <div>
-                        <div class="acc-title">Observação metodológica e uso prático no dashboard</div>
-                        <div class="acc-meta">Critérios de inclusão e lacunas de indexação</div>
+                        <div class="acc-title">Observação metodológica – escopo da varredura diária</div>
+                        <div class="acc-meta">Critérios de inclusão de precedentes no Monitor ORCRIM</div>
                       </div>
                       <span class="acc-icon">›</span>
                     </div>
                     <div class="acc-body">
                       <p class="acc-text">
-                        O Monitor ORCRIM registra apenas precedentes cujo teor ou ementa, nos repositórios públicos de TJPE, STJ ou STF, contenham referência explícita a organização criminosa ou à Lei 12.850/2013; decisões não indexadas por esses termos, ainda que materialmente relacionadas, podem não ser captadas pelo filtro automatizado.[web:11][web:14]
+                        O Monitor ORCRIM registra, na aba diária, apenas decisões de TJPE, STJ e STF cuja ementa ou texto do acórdão contenham referência explícita à Lei nº 12.850/2013, ao crime de organização criminosa ou aos principais meios de investigação nela previstos (colaboração premiada, infiltração de agentes, ação controlada, captação ambiental, entre outros).
                       </p>
                       <p class="acc-text">
-                        Para o dia de hoje, o painel jurisprudencial permanece, portanto, como indicação negativa (sem novidades), servindo como alerta de que não houve inflexões jurisprudenciais recentes conhecidas na matéria, sem prejuízo de pesquisas pontuais adicionais por número de processo ou tema específico em cada corte.[web:17][web:20]
+                        Outros julgados potencialmente relevantes, mas não indexados por esses descritores nos sistemas de pesquisa, permanecem acessíveis por busca individual por número de processo ou por temas específicos em cada corte, motivo pelo qual a ausência de novidades no painel não afasta a necessidade de pesquisas pontuais em casos concretos.
                       </p>
+                    </div>
+                  </div>
+
+                  <div class="acc-item">
+                    <div class="acc-header">
+                      <div>
+                        <div class="acc-title">Uso prático – defesa e acusação diante de estabilidade jurisprudencial</div>
+                        <div class="acc-meta">Como interpretar a ausência de viradas recentes de entendimento</div>
+                      </div>
+                      <span class="acc-icon">›</span>
+                    </div>
+                    <div class="acc-body">
+                      <p class="acc-text">
+                        A inexistência de novos precedentes relevantes em 24 horas reforça, para fins de atuação estratégica, a importância de precedentes já consolidados em matéria de organização criminosa, notadamente quanto à autonomia do tipo penal, à exigência de estabilidade e divisão de tarefas e à distinção em relação a figuras como associação criminosa e associação para o tráfico.
+                      </p>
+                      <p class="acc-text">
+                        Na prática, defesa e acusação devem continuar ancorando seus argumentos em julgados paradigmáticos e informativos de jurisprudência produzidos nos últimos anos, sem prejuízo do acompanhamento diário de eventuais novas decisões capazes de alterar o estado da arte do tema.
+                      </p>
+                      <div class="chip-row">
+                        <span class="chip defesa">Defesa – monitorar decisões que restrinjam a expansão do conceito de organização criminosa</span>
+                        <span class="chip acusacao">Acusação – mapear julgados que reforcem a autonomia do tipo e a validade de técnicas especiais de investigação</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -541,7 +565,6 @@
   </div>
 
   <script>
-    // AUXILIAR: abre painel com animação e, ao final, remove limite
     function openPanel(element) {
       element.style.maxHeight = 'none';
       const full = element.scrollHeight;
@@ -549,7 +572,6 @@
       requestAnimationFrame(() => {
         element.style.maxHeight = full + 'px';
       });
-
       const onEnd = (ev) => {
         if (ev.propertyName === 'max-height') {
           element.style.maxHeight = 'none';
@@ -559,22 +581,18 @@
       element.addEventListener('transitionend', onEnd);
     }
 
-    // GRANDES SANFONAS – abrir uma fecha as outras
     const bigItems = document.querySelectorAll('.big-item');
     bigItems.forEach(item => {
       const header = item.querySelector('.big-header');
       const body = item.querySelector('.big-body');
       body.style.maxHeight = '0px';
-
       header.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
-
         bigItems.forEach(it => {
           const b = it.querySelector('.big-body');
           it.classList.remove('open');
           b.style.maxHeight = '0px';
         });
-
         if (!isOpen) {
           item.classList.add('open');
           openPanel(body);
@@ -582,12 +600,10 @@
       });
     });
 
-    // SANFONAS INTERNAS – independentes, sempre iniciam fechadas
     document.querySelectorAll('.acc-item').forEach(item => {
       const header = item.querySelector('.acc-header');
       const body = item.querySelector('.acc-body');
       body.style.maxHeight = '0px';
-
       header.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
         if (isOpen) {
